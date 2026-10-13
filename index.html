@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b5d3b">
+  <meta name="description" content="Digital Empire Créativités accompagne les entreprises dans la création de sites web, les plateformes numériques, l'intelligence artificielle et la transformation digitale.">
+  <title>Digital Empire Créativités | L'avenir se construit ici</title>
+  <style>
+    :root {
+      --green: #0b5d3b;
+      --green-dark: #073d29;
+      --blue: #1769d2;
+      --white: #ffffff;
+      --ink: #14251d;
+      --muted: #65736b;
+      --light: #f3f8f5;
+      --gold: #d9b66f;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: 0 auto;
+    }
+
+    header {
+      background: var(--white);
+      border-bottom: 1px solid #e7eee9;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: .3px;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px 4px 14px 4px;
+      background: var(--green);
+      color: white;
+      font-size: 22px;
+    }
+
+    .brand-name { font-size: 14px; }
+    .brand-name small {
+      display: block;
+      margin-top: 4px;
+      color: var(--green);
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .nav-links a:hover { color: var(--blue); }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 14px 21px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: transform .2s, background .2s;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+
+    .button-green {
+      color: white;
+      background: var(--green);
+    }
+
+    .button-green:hover { background: var(--green-dark); }
+
+    .button-white {
+      color: var(--green);
+      background: white;
+      border: 1px solid #dfe9e2;
+    }
+
+    .hero {
+      overflow: hidden;
+      position: relative;
+      padding: 100px 0 92px;
+      color: white;
+      background:
+        radial-gradient(ellipse at 85% 15%, #19784f 0, transparent 35%),
+        linear-gradient(125deg, #073d29, #0b5d3b 58%, #124d8c);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      right: -130px;
+      bottom: -190px;
+      border: 1px solid #ffffff35;
+      border-radius: 50%;
+      box-shadow: 0 0 0 40px #ffffff08, 0 0 0 80px #ffffff08;
+    }
+
+    .hero-content {
+      max-width: 760px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(38px, 6vw, 68px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin-bottom: 25px;
+    }
+
+    h1 span { color: #bcebd0; }
+
+    .hero p {
+      max-width: 630px;
+      color: #e0eee6;
+      font-size: 17px;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-note {
+      margin-top: 34px;
+      font-size: 12px;
+      color: #d2e5d9;
+      letter-spacing: .5px;
+    }
+
+    section { padding: 82px 0; }
+
+    .section-heading {
+      max-width: 680px;
+      margin-bottom: 38px;
+    }
+
+    .section-label {
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.2;
+      letter-spacing: -1px;
+      margin: 12px 0 16px;
+    }
+
+    .section-heading p,
+    .about-copy {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      padding: 28px 24px;
+      background: var(--white);
+      border: 1px solid #e3ece6;
+      border-radius: 14px;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px #103d2910;
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: #e7f4ec;
+      font-size: 23px;
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .about {
+      background: var(--light);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .vision-panel {
+      min-height: 310px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 40px;
+      border-radius: 18px;
+      color: white;
+      background: linear-gradient(145deg, var(--green-dark), #1769a8);
+    }
+
+    .vision-panel .big-mark {
+      font-size: 48px;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .vision-panel h3 {
+      font-size: 27px;
+      line-height: 1.3;
+      margin-bottom: 15px;
+    }
+
+    .vision-panel p { color: #e0eee6; }
+
+    .about-copy p { margin-bottom: 16px; }
+
+    .contact {
+      text-align: center;
+      color: white;
+      background: var(--green-dark);
+    }
+
+    .contact .section-label { color: var(--gold); }
+
+    .contact h2 {
+      max-width: 720px;
+      margin: 14px auto 18px;
+    }
+
+    .contact p {
+      max-width: 600px;
+      margin: 0 auto 28px;
+      color: #d5e7dc;
+    }
+
+    .contact .button { margin: 5px; }
+
+    footer {
+      padding: 25px 0;
+      color: #d2e0d7;
+      background: #052b1d;
+      font-size: 12px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 20;
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: #20b968;
+      border-radius: 50%;
+      box-shadow: 0 6px 22px #0003;
+      font-size: 25px;
+    }
+
+    @media (max-width: 760px) {
+      .nav { min-height: 70px; }
+      .nav-links { gap: 12px; }
+      .nav-links a:not(.nav-contact) { display: none; }
+      .nav-contact { font-size: 12px; padding: 10px 12px; }
+      .hero { padding: 72px 0 68px; }
+      h1 { letter-spacing: -1px; }
+      .hero p { font-size: 15px; }
+      section { padding: 62px 0; }
+      .services { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; gap: 30px; }
+      .vision-panel { min-height: 250px; padding: 28px; }
+      .footer-content { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#accueil" aria-label="Digital Empire Créativités, accueil">
+        <span class="brand-mark">DE</span>
+        <span class="brand-name">
+          DIGITAL EMPIRE
+          <small>CRÉATIVITÉS</small>
+        </span>
+      </a>
+
+      <nav class="nav-links" aria-label="Navigation principale">
+        <a href="#services">Nos expertises</a>
+        <a href="#vision">Notre vision</a>
+        <a class="button button-green nav-contact"
+           href="https://wa.me/22651259570?text=Bonjour%20Digital%20Empire%20Cr%C3%A9ativit%C3%A9s%2C%20je%20souhaite%20en%20savoir%20plus."
+           target="_blank" rel="noopener noreferrer">Nous contacter</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="accueil">
+      <div class="container">
+        <div class="hero-content">
+          <span class="eyebrow">Stratégie · Créativité · Technologie</span>
+          <h1>Le numérique au service de <span>vos ambitions.</span></h1>
+          <p>
+            Nous imaginons des solutions numériques pour aider les entreprises,
+            les entrepreneurs et les porteurs de projets à développer leur
+            visibilité, moderniser leurs activités et saisir de nouvelles
+            opportunités.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-white" href="#services">Découvrir nos expertises ↗</a>
+            <a class="button button-green"
+               style="border:1px solid #ffffff55"
+               href="https://wa.me/22651259570?text=Bonjour%20Digital%20Empire%20Cr%C3%A9ativit%C3%A9s%2C%20parlons%20de%20mon%20projet."
+               target="_blank" rel="noopener noreferrer">Parler de mon projet →</a>
+          </div>
+          <div class="hero-note">UNE VISION : INNOVER · TRANSFORMER · IMPACTER · FORMER</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-label">Nos expertises</span>
+          <h2>Des idées ambitieuses. Des solutions concrètes.</h2>
+          <p>
+            Nous plaçons la stratégie et les besoins réels de chaque projet
+            au cœur de notre approche.
+          </p>
+        </div>
+
+        <div class="services">
+          <article class="service-card">
+            <div class="service-icon">🌐</div>
+            <h3>Sites web professionnels</h3>
+            <p>
+              Présentez votre activité en ligne avec une vitrine claire,
+              moderne et adaptée aux téléphones.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">▦</div>
+            <h3>Plateformes numériques & QR</h3>
+            <p>
+              Facilitez l'accès à vos informations, vos services et vos
+              contacts grâce à des expériences numériques accessibles.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">✦</div>
+            <h3>Intelligence artificielle</h3>
+            <p>
+              Explorez les usages de l'IA pour améliorer vos méthodes
+              de travail et développer de nouvelles idées.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">↗</div>
+            <h3>Stratégie digitale</h3>
+            <p>
+              Structurez votre présence en ligne, votre communication
+              et vos priorités de développement.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">⚙</div>
+            <h3>Automatisation</h3>
+            <p>
+              Identifiez les tâches répétitives qui pourraient être
+              simplifiées grâce à des outils numériques adaptés.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">◎</div>
+            <h3>Innovation & transformation</h3>
+            <p>
+              Faites évoluer vos projets avec une approche pratique,
+              progressive et orientée vers vos objectifs.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="vision">
+      <div class="container about-grid">
+        <div class="about-copy">
+          <span class="section-label">Notre vision</span>
+          <h2>La technologie doit créer de la valeur.</h2>
+          <p>
+            Digital Empire Créativités ambitionne de rapprocher les entreprises
+            des opportunités offertes par le numérique.
+          </p>
+          <p>
+            Notre approche commence par l'écoute de vos besoins, la définition
+            d'une solution adaptée et la construction progressive d'un projet
+            utile à votre activité.
+          </p>
+          <a class="button button-green"
+             href="https://wa.me/22651259570?text=Bonjour%2C%20je%20souhaite%20%C3%A9changer%20sur%20un%20projet%20avec%20Digital%20Empire%20Cr%C3%A9ativit%C3%A9s."
+             target="_blank" rel="noopener noreferrer">Échangeons sur votre projet →</a>
+        </div>
+
+        <div class="vision-panel">
+          <div class="big-mark">DE / 01</div>
+          <h3>Innover aujourd'hui.<br>Construire demain.</h3>
+          <p>
+            Des solutions numériques pensées pour les besoins
+            des entreprises et les ambitions de demain.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <span class="section-label">Entrons en contact</span>
+        <h2>Votre prochaine idée mérite une conversation.</h2>
+        <p>
+          Vous avez une entreprise, un projet ou une idée à développer ?
+          Contactez-nous pour nous présenter vos besoins.
+        </p>
+        <a class="button"
+           style="background:#20b968;color:white"
+           href="https://wa.me/22651259570?text=Bonjour%20Digital%20Empire%20Cr%C3%A9ativit%C3%A9s%2C%20je%20vous%20contacte%20pour%20un%20projet."
+           target="_blank" rel="noopener noreferrer">WhatsApp : +226 51 25 95 70</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <span>© <span id="year"></span> Digital Empire Créativités</span>
+      <span>Stratégie digitale · Innovation · Transformation</span>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float"
+     href="https://wa.me/22651259570?text=Bonjour%20Digital%20Empire%20Cr%C3%A9ativit%C3%A9s."
+     target="_blank" rel="noopener noreferrer"
+     aria-label="Contacter Digital Empire sur WhatsApp">✆</a>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
